@@ -1,8 +1,6 @@
 # ZED-3D-Aruco
 
-# Stereolabs ZED - Depth Sensing +
-# OpenCV ARUCO markers detection +
-# GLViewer click handler.
+## Stereolabs ZED - Depth Sensing + OpenCV ARUCO markers detection +  GLViewer click handler.
 
 This sample captures a 3D point cloud and display it in an OpenGL window, intercepting ARUCO markers
 
