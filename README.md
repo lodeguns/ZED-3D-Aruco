@@ -1,6 +1,8 @@
 # ZED-3D-Aruco
 
-# Stereolabs ZED - Depth Sensing + OpenCV ARUCO markers detection.
+# Stereolabs ZED - Depth Sensing +
+# OpenCV ARUCO markers detection +
+# GLViewer click handler.
 
 This sample captures a 3D point cloud and display it in an OpenGL window, intercepting ARUCO markers
 
@@ -14,6 +16,89 @@ Note the markers are created through the [Online ArUco markers generator](http:/
 
 To retrieve a depth map of the scene, see [Depth Sensing](https://github.com/stereolabs/zed-examples/tree/master/tutorials) tutorial.
 
+
+For those impatient, the run() function is modified in this way:
+```
+void run() {
+    cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
+    printf("OpenCV: %s", cv::getBuildInformation().c_str());
+    char key = ' ';
+    while (key != 'q') {
+        if (zed.grab() == SUCCESS) {
+            // Retrieve a colored RGBA point cloud in GPU memory and update GL viewing window
+            // width and height specify the total number of columns and rows for the point cloud dataset
+            // Retrieve the IDs of printed ArUco markers.
+            // Get 3D coordinates by clicking on the GL Viewer.
+
+            // superficie
+            zed.retrieveMeasure(point_cloud, MEASURE_XYZRGBA, MEM_GPU, width, height);
+            viewer.updatePointCloud(point_cloud);
+
+           
+            //std::cout << " Click handler: " << std::endl;
+            //std::cout << viewer.getClickedPoint().x << std::endl;
+            //std::cout << viewer.getClickedPoint().y << std::endl;
+
+            //Surface
+            //Standard cod: MAT_TYPE_8U_C4
+            Mat image_zed(width, height, MAT_TYPE_8U_C4);
+            Mat depth_image_zed(width, height, MAT_TYPE_8U_C4);
+
+            // sl::Mat to cv::Mat conversion
+            cv::Mat image_ocv = slMat2cvMat(image_zed);
+            cv::Mat depth_image_ocv = slMat2cvMat(depth_image_zed);
+
+            // Retrieve the left image, depth image in half-resolution
+            zed.retrieveImage(image_zed, VIEW_LEFT, MEM_CPU, width, height);
+            zed.retrieveImage(depth_image_zed, VIEW_DEPTH, MEM_CPU, width, height);
+
+
+           // Display image and depth using cv:Mat which share sl:Mat data
+           //cv::imshow("Image", image_ocv);
+           // cv::imshow("Depth", depth_image_ocv);
+
+
+
+           cv::Mat image_ocv_2, imageCopy;
+           cv::Mat mask;
+           image_ocv.convertTo(image_ocv, CV_8UC4);
+           cv::cvtColor(image_ocv, mask, CV_BGR2GRAY);
+
+
+           mask.copyTo(imageCopy);
+           std::vector<int> ids;
+           std::vector<std::vector<cv::Point2f> > corners;
+           cv::aruco::detectMarkers(mask, dictionary, corners, ids);
+              // if at least one marker detected
+           std::vector<int> v1 = { 3, 2, 1 };
+             //not need to sort since it already sorted
+
+           if (ids.size() > 0)
+           {        cv::aruco::drawDetectedMarkers(imageCopy, corners, ids);
+                   if (v1 != ids) {
+                       std::cout << "Visible markes:" << std::endl;
+                       for (auto i : ids) std::cout << i << std::endl;
+                   }
+             }
+
+
+
+            cv::imshow("Image", imageCopy);
+
+
+
+            //Handle key event
+            key = cv::waitKey(10);
+            processKeyEvent(zed, key);
+
+
+        } else sl::sleep_ms(1);
+    }
+}
+
+```
+
+
 ## Getting started
 
 - First, download the latest version of the ZED SDK on [stereolabs.com](https://www.stereolabs.com).
@@ -21,7 +106,7 @@ To retrieve a depth map of the scene, see [Depth Sensing](https://github.com/ste
 
 ### Prerequisites
 
-- Windows 7 64bits or later, Ubuntu 16.04
+- Ubuntu 16.04
 - [ZED SDK](https://www.stereolabs.com/developers/) and its dependencies ([CUDA](https://developer.nvidia.com/cuda-downloads))
 
 ## Build the program
