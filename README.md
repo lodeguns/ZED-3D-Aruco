@@ -16,7 +16,7 @@ Note the markers are created through the [Online ArUco markers generator](http:/
 To retrieve a depth map of the scene, see [Depth Sensing](https://github.com/stereolabs/zed-examples/tree/master/tutorials) tutorial.
 
 ### Here a working example on 3 AruCo Markers
-[alt text](https://raw.githubusercontent.com/lodeguns/ZED-3D-Aruco/master/arucom.png)
+![alt text](https://raw.githubusercontent.com/lodeguns/ZED-3D-Aruco/master/arucom.png)
 
 
 ### Code Mod. 
@@ -137,3 +137,7 @@ Open a terminal in the sample directory and execute the following command:
 
         ./ZED_Depth_Sensing
 
+## Lincense
+The SDK example is implemented by ZED and follow its lincence.
+The modifications are developed in the NeuRoNe Lab - University of Salerno, IT
+and supported by the ValueBiotech - Milano, IT
