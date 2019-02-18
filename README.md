@@ -130,6 +130,6 @@ Open a terminal in the sample directory and execute the following command:
 ## Lincense
 The SDK example is implemented by ZED and follow its licence. 
 
-The modifications are developed by Francesco Bardozzo (fbardozzo@unisa.it) in the NeuRoNe Lab @ University of Salerno, IT
+The modifications are developed by Francesco Bardozzo(fbardozzo@unisa.it) in the NeuRoNe Lab@University of Salerno,IT
 
 The project supported by the ValueBiotech - Milano, IT
