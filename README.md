@@ -56,7 +56,7 @@ void run() {
            // cv::imshow("Depth", depth_image_ocv);
 
 
-
+           //OpenCV conv.
            cv::Mat image_ocv_2, imageCopy;
            cv::Mat mask;
            image_ocv.convertTo(image_ocv, CV_8UC4);
@@ -69,7 +69,6 @@ void run() {
            cv::aruco::detectMarkers(mask, dictionary, corners, ids);
               // if at least one marker detected
            std::vector<int> v1 = { 3, 2, 1 };
-             //not need to sort since it already sorted
 
            if (ids.size() > 0)
            {        cv::aruco::drawDetectedMarkers(imageCopy, corners, ids);
