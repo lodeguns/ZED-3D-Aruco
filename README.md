@@ -128,6 +128,6 @@ Open a terminal in the sample directory and execute the following command:
         ./ZED_Depth_Sensing
 
 ## Lincense
-The SDK example is implemented by ZED and follow its lincence.
-The modifications are developed in the NeuRoNe Lab - University of Salerno, IT
-and supported by the ValueBiotech - Milano, IT
+The SDK example is implemented by ZED and follow its licence. 
+
+The modifications are developed by Francesco Bardozzo (fbardozzo@unisa.it) in the NeuRoNe Lab @ University of Salerno, IT and supported by the ValueBiotech - Milano, IT
