@@ -111,17 +111,7 @@ void run() {
 - Ubuntu 16.04
 - [ZED SDK](https://www.stereolabs.com/developers/) and its dependencies ([CUDA](https://developer.nvidia.com/cuda-downloads))
 
-## Build the program
-
-#### Build for Windows
-
-- Create a "build" folder in the source folder
-- Open cmake-gui and select the source and build folders
-- Generate the Visual Studio `Win64` solution
-- Open the resulting solution and change configuration to `Release`
-- Build solution
-
-#### Build for Linux
+#### Build  the program for Linux
 
 Open a terminal in the sample directory and execute the following command:
 
