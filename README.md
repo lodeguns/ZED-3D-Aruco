@@ -21,7 +21,7 @@ To retrieve a depth map of the scene, see [Depth Sensing](https://github.com/ste
 
 ### Code Mod. 
 For those impatient, the origial ZED SDK run() function is modified in this way:
-```
+```C++
 void run() {
     cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
     printf("OpenCV: %s", cv::getBuildInformation().c_str());
