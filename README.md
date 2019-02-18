@@ -9,6 +9,7 @@ It shows how to:
 - Display point cloud in OpenGL.
 - Use a thread to capture the point cloud and update the GL window simultaneously.
 - Open a parallel OpenCV window detecting ARUCO markers see [OpenCV ARUCO Markers](https://docs.opencv.org/3.1.0/d5/dae/tutorial_aruco_detection.html).
+- GLViewer is modified in order to obtain a pixel click handler.
 
 Note the markers are created through the [Online ArUco markers generator](http://chev.me/arucogen/)
 
