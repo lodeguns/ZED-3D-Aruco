@@ -15,7 +15,7 @@ Note the markers are created through the [Online ArUco markers generator](http:/
 To retrieve a depth map of the scene, see [Depth Sensing](https://github.com/stereolabs/zed-examples/tree/master/tutorials) tutorial.
 
 
-For those impatient, the run() function is modified in this way:
+For those impatient, the origial ZED SDK run() function is modified in this way:
 ```
 void run() {
     cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
