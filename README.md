@@ -132,4 +132,4 @@ The SDK example is implemented by ZED and follow its licence.
 
 The modifications are developed by Francesco Bardozzo(fbardozzo@unisa.it) in the NeuRoNe Lab@University of Salerno,IT
 
-The project supported by the ValueBiotech - Milano, IT
+The project is supported by the ValueBiotech - Milano, IT
